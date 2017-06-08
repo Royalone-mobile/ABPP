@@ -1,0 +1,19 @@
+<GridLayout>
+    <GridLayout #background class="background">
+    </GridLayout>
+    <StackLayout #container [visibility]="isLoading ? 'collapsed' : 'visible' ">
+      <Image src="res://logo" height="70" width="70" horizontalAlignment="center"></Image>
+      <Label text="A.B. Software & Consultancy" class="text-center h3 text-bold"></Label>
+      <TextField [hint]="isLoggingIn ? 'Gebruikersnaam' : 'Uw naam'" keyboardType="email" [(ngModel)]="isLoggingIn ? user.username : user.name"
+        autocorrect="false" autocapitalizationType="none"></TextField>
+      <TextField [hint]="isLoggingIn ? 'Wachtwoord' : 'E-mailadres'" [secure]="isLoggingIn ? true : false" [(ngModel)]="isLoggingIn ? user.password : user.email"></TextField>
+
+      <Button [text]="isLoggingIn ? 'Inloggen' : 'Demo aanvragen'" class="submit-button" (tap)="submit()"></Button>
+      <Button [text]="isLoggingIn ? 'Demo aanvragen' : 'Annuleren'" (tap)="toggleDisplay()"></Button>
+    </StackLayout>
+    <StackLayout class="loading" [visibility]="isLoading ? 'visible' : 'collapsed' ">
+      <Image src="res://logo" height="70" width="70" horizontalAlignment="center"></Image>
+      <Label text="Bezig met authenticeren.."></Label>
+      <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapsed'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+    </StackLayout>
+</GridLayout>

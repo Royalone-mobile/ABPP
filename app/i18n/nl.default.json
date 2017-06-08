@@ -1,0 +1,12 @@
+{
+  "app.name": "ABPP",
+  "ios.info.plist": {
+    "NSLocationWhenInUseUsageDescription": "A.B. Software & Consultancy App"
+  },
+  "user": {
+    "name": "Naam",
+    "email": "Emailadres",
+    "username": "Gebruikersnaam"
+  },
+  "hello.world": "Hallo Wereld!"
+}

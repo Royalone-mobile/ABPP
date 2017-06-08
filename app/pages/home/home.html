@@ -1,0 +1,35 @@
+
+<RadSideDrawer tkExampleTitle tkToggleNavButton drawerTransition="PushTransition">
+    <StackLayout tkDrawerContent class="sideStackLayout">
+        <StackLayout>
+          <Image src="res://logo" height="125"></Image>
+          <Label class="sideHeader" text="A.B. Software & Consultancy"></Label>
+        <Label text="Welkom, {{username}}"></Label>
+        <Label text="Uitloggen" (tap)="tapLogout()" class="font-awesome logout"></Label>
+          
+        <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapsed'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
+
+            <ListView [items]="pages" row="1" class="sideListView" (itemTap)="onMenuItemTap($event)">
+                <ng-template let-item="item" let-i="index">
+                    <StackLayout>
+                        <Label text="&#xf054; {{item.title}}" class="sideListItem" ></Label>
+                    </StackLayout>
+                </ng-template>
+            </ListView>
+            <Label text="Voor meer informatie, bel:"></Label>
+            <Button text="&#xf095; 088-4561234" class="font-awesome" (tap)="tapCall()"></Button>
+        </StackLayout>
+        
+    </StackLayout>
+    <StackLayout tkMainContent class="mainContent">
+      <ActionBar [title]="pageTitle">
+          <ActionItem (tap)="toggleDrawer()">
+            <Button class="font-awesome hamburger-menu" text="&#xf0c9;"></Button> 
+          </ActionItem>
+      </ActionBar> 
+        <StackLayout>
+          <Label [visibility]="isConnected ? 'collapsed' : 'visible'" text="OFFLINE Modus: Er kan geen verbinding gemaakt worden met de server. Tik hier voor meer informatie." (onTap)="tapOfflineLabel()" class="offline-label" textwrap="true"></Label>
+          <router-outlet></router-outlet>
+        </StackLayout>
+    </StackLayout>
+</RadSideDrawer>

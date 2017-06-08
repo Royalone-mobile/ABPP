@@ -1,0 +1,12 @@
+<ScrollView>
+    <StackLayout #form>
+        <ActivityIndicator 
+                [busy]="formLoading" 
+                [visibility]="formLoading ? 'visible' : 'collapsed'" 
+                row="1" 
+                horizontalAlignment="center" 
+                verticalAlignment="center"></ActivityIndicator>
+        <StackLayout #container [class.visible]="!formLoading">
+        </StackLayout>
+    </StackLayout>
+</ScrollView>

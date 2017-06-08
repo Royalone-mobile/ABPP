@@ -1,0 +1,42 @@
+.background, backgroundscroll {
+  background-image: url("res://loginbg");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  animation-name: scroll;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+}
+
+StackLayout {
+  margin-left: 30;
+  margin-right: 30;
+  padding-bottom: 15;
+  background-color: rgba(255,255,255,0.75);
+  border-radius:2;
+}
+Image {
+  margin-top: 5;
+  margin-bottom: 5;
+}
+Button, TextField {
+  margin-left: 16;
+  margin-right: 16;
+  margin-bottom: 10;
+}
+TextField{
+  color:#444;
+  background:white;
+}
+.loading{
+  height:150;
+  text-align: center;
+}
+.loading Image{
+  margin-bottom:15;
+}
+
+@keyframes scroll {
+  from { transform:scale(1.4,1.4); }
+  to { transform: scale(1,1); }
+}
